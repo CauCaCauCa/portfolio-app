@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import Link from 'next/link'
-import './../styles/other-page/header.scss'
+import './../styles/other-page/Header.scss'
 import ButtonStyle from './home-page/_button/ButtonStyle'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SpaceDashboardRoundedIcon from '@mui/icons-material/SpaceDashboardRounded';
