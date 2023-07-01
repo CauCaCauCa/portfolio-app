@@ -50,7 +50,7 @@ function Desktop() {
                 <div className='list-menu'>
                     <Link href='#'><b>Home</b></Link>
                     <Link href='#'><b>Dashboard</b></Link>
-                    <Link href='/demo'><b>Demo</b></Link>
+                    <Link href='/demo'><b>Demo oke</b></Link>
                 </div>
             </div>
             <div id='right'>
