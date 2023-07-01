@@ -9,7 +9,7 @@ import { ThemeProvider, useThemeContext } from '../../components/demo-page/Theme
 
 type Props = {}
 
-export default function page({ }: Props) {
+export default function Page({ }: Props) {
 
   // const { theme } = useThemeContext()!;
 

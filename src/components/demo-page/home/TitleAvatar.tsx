@@ -15,13 +15,13 @@ export default function Title() {
     return (
         <div style={styleTitle}>
             <div style={{ fontSize: '3rem', fontWeight: '750', color: 'rgb(255,180,0)' }}>
-                .I'M NG TRONG TIEN<span style={{ userSelect: 'none' }}> --</span>
+                .I&apos;M NG TRONG TIEN<span style={{ userSelect: 'none' }}> --</span>
             </div>
             <div style={{ fontSize: '3rem', fontWeight: '750', }}>
                 WEB DEVELOPER<span style={{ opacity: '0' }}> --</span>
             </div>
             <p style={{ lineHeight: '2rem', fontSize: '1.1rem' }}>
-                I'm a VietNam based web developer focused on
+                I&apos;m a VietNam based web developer focused on
                 crafting clean & user‑friendly experiences, I am passionate about building
                 excellent software that improves the lives of those around me
             </p>
