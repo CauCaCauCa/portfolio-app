@@ -2,10 +2,11 @@
 
 import AvatarPanel from '@/components/demo-page/home/AvatarPanel'
 import Title from '@/components/demo-page/home/TitleAvatar'
-import React, { useEffect, useState, useContext } from 'react'
-import '../../styles/demo-page/page.scss'
+import React, { useEffect, useState } from 'react'
 import Navbar from '@/components/demo-page/Navbar'
 import { ThemeProvider, useThemeContext } from '../../components/demo-page/ThemeContext'
+import InfoSlide from '@/components/demo-page/about/InfoSlide'
+import './page.scss'
 
 type Props = {}
 
@@ -21,6 +22,7 @@ export default function Page({ }: Props) {
   useEffect(() => {
     // document.body.style.backgroundColor = theme === 'light' ? '#f5f5f5' : 'rgb(17,17,17)';
     document.body.style.backgroundColor = 'rgb(17,17,17)';
+
     // Check if the code is running on the client side
     if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth < 1200);
@@ -36,31 +38,66 @@ export default function Page({ }: Props) {
       // Clean up the event listener when the component is unmounted
       return () => {
         window.removeEventListener('resize', handleResize);
+        document.body.style.backgroundColor = 'white';
       }
     }
-
   }, [])
 
   return (
-    <>
+    <div id='demo-page'>
       <ThemeProvider>
         {isShow ? (isMobile ? <Mobile /> : <Desktop />) : null}
       </ThemeProvider>
-    </>
+    </div>
   )
 }
 
 function Desktop() {
   const [curPage, setCurPage] = useState('home');
   const { theme } = useThemeContext()!;
-  
+
   useEffect(() => {
     document.body.style.backgroundColor = theme === 'light' ? '#f5f5f5' : 'rgb(17,17,17)';
   }, [theme])
 
-  return (
-    <div id='demo-page-desktop'>
 
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  function handleMouseMove(e: any) {
+    setPosition({ x: e.clientX, y: e.clientY });
+    var ele = document.getElementById('pointer');
+    if (ele) {
+      ele.style.opacity = '0.2';
+    }
+  }
+
+  function handleOnMouseLeave() {
+    var e = document.getElementById('pointer');
+    if (e) {
+      e.style.opacity = '0';
+    }
+  }
+
+
+  return (
+    <div id='demo-page-desktop'
+      style={{ position: 'fixed', width: '100%', height: '100vh' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleOnMouseLeave}>
+      <div id='pointer'
+        style={{
+          position: 'absolute',
+          backgroundColor: 'rgb(255,180,0)',
+          borderRadius: '50%',
+          transform: `translate(${position.x}px, ${position.y}px)`,
+          left: -25.25,
+          top: -25.25,
+          width: 55,
+          height: 55,
+          pointerEvents: 'none',
+          zIndex: 999,
+          opacity: 0,
+        }} />
       <Navbar curPage={curPage} setCurPage={setCurPage} />
       {
         curPage === 'home' &&
@@ -69,8 +106,13 @@ function Desktop() {
           <Title />
         </>
       }
+      {
+        curPage === 'about' &&
+        <>
+          <InfoSlide />
+        </>
+      }
     </div>
-
   )
 }
 

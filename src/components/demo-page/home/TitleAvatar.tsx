@@ -4,14 +4,16 @@ import ModalMoreAboutMe from './ModalMoreAboutMe';
 
 export default function Title() {
     const { theme } = useThemeContext()!;
+
     const styleTitle = {
         position: 'absolute' as 'absolute',
-        top: '27%',
-        left: '49%',
+        top: '28%',
+        left: '50%',
         width: '34rem',
         color: theme === 'light' ? '#323232' : 'white',
         textAlign: 'right' as 'right',
     }
+
     return (
         <div style={styleTitle}>
             <div style={{ fontSize: '3rem', fontWeight: '750', color: 'rgb(255,180,0)' }}>
@@ -25,27 +27,7 @@ export default function Title() {
                 crafting clean & user‑friendly experiences, I am passionate about building
                 excellent software that improves the lives of those around me
             </p>
-            <div className='btn-custom-2' style={{ marginTop: '1rem', float: 'right' }}>
-                <div className='icon'>
-                    <i className="fa-solid fa-arrow-right fa-2xl"></i>
-                </div>
-                <div className='detail' />
-                <div style={{
-                    border: 'solid 1px rgb(255,180,0)',
-                    borderRadius: '8rem',
-                    padding: '0 0 0 3rem',
-                    height: '3.5rem',
-                    width: '15rem',
-                    textAlign: 'left' as 'left',
-                    display: 'flex',
-                    alignItems: 'center',
-                }}>
-                    <b style={{
-                        fontSize: '0.9rem',
-                    }}>MORE ABOUT ME</b>
-                    <ModalMoreAboutMe />
-                </div>
-            </div>
+            <ModalMoreAboutMe />
         </div>
     )
 }

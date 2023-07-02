@@ -4,16 +4,16 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import TransitEnterexitRoundedIcon from '@mui/icons-material/TransitEnterexitRounded';
+// import '../page.scss'
 
 const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 1000,
+    height: 500,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -25,20 +25,71 @@ export default function ModalMoreAboutMe() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    function handleOnMouseOver() {
+        const btnMoreAboutMe = document.getElementById('btn-more-about-me')!;
+        btnMoreAboutMe.style.width = '14rem';
+    }
+
+    function handleOnMouseOut() {
+        const btnMoreAboutMe = document.getElementById('btn-more-about-me')!;
+        btnMoreAboutMe.style.width = '1px';
+    }
+
+
     return (
-        <div>
-            <Button onClick={handleOpen}>
-                <TransitEnterexitRoundedIcon
+        <div id='modal-more-about-me'>
+            <div
+                onMouseOver={handleOnMouseOver}
+                onMouseOut={handleOnMouseOut}
                 style={{
-                    fontWeight: 'bold',
-                    backgroundColor: 'rgb(255,180,0)',
-                    borderRadius: '50%',
-                    width: '2.5rem',
-                    height: '2.5rem',
-                    rotate: '225deg',
+                    borderRadius: '10rem',
+                    border: '1px solid rgb(255,180,0)',
+                    width: '14rem',
+                    float: 'right',
+                    overflow: 'hidden',
                 }}
-                 />
-            </Button>
+            >
+                <b style={{
+                    fontSize: '.8rem',
+                    // marginRight: '1.2rem',
+                    pointerEvents: 'none',
+                    userSelect: 'none',
+                    userDrag: 'none',  
+                    position: 'absolute',
+                    right: '5rem',
+                    zIndex: 5,
+                    padding: '1.3rem 0',
+                } as any}
+                >MORE ABOUT ME</b>
+                <Button
+                    id='btn-more-about-me'
+                    onClick={handleOpen}
+                    style={{
+                        backgroundColor: 'rgb(255,180,0)',
+                        // borderRadius: '20rem',   
+                        width: '1px',
+                        height: '3.6rem',
+                        minWidth: '0',
+                        transition: 'all 0.25s',
+                    }}
+                >
+                    <TransitEnterexitRoundedIcon
+                        style={{
+                            backgroundColor: 'rgb(255,180,0)',
+                            position: 'absolute',
+                            right: '0',
+                            borderRadius: '50%',
+                            padding: '.85rem',
+                            fontWeight: 'bold',
+                            rotate: '225deg',
+                            color: 'white',
+                            fontSize: '2rem',
+                            textAlign: 'center',
+                        }}
+                    />
+                </Button>
+            </div>
+
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -54,12 +105,7 @@ export default function ModalMoreAboutMe() {
             >
                 <Fade in={open}>
                     <Box sx={style}>
-                        <Typography id="transition-modal-title" variant="h6" component="h2">
-                            Text in a modal
-                        </Typography>
-                        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </Typography>
+
                     </Box>
                 </Fade>
             </Modal>

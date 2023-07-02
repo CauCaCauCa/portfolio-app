@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import Link from 'next/link'
-import './../styles/other-page/Header.scss'
+import './Header.scss'
 import ButtonStyle from './home-page/_button/ButtonStyle'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SpaceDashboardRoundedIcon from '@mui/icons-material/SpaceDashboardRounded';
@@ -50,7 +50,7 @@ function Desktop() {
                 <div className='list-menu'>
                     <Link href='#'><b>Home</b></Link>
                     <Link href='#'><b>Dashboard</b></Link>
-                    <Link href='/demo'><b>Demo oke</b></Link>
+                    <Link href='/demo'><b>Demo</b></Link>
                 </div>
             </div>
             <div id='right'>

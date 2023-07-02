@@ -18,9 +18,21 @@ export default function AvatarPanel() {
     userSelect: 'none' as 'none',
     userDrag: 'none',
   }
+
+  const styleItemBehindAvatar = {
+    position: 'fixed' as 'fixed',
+    left: '-35rem',
+    height: '100vh',
+    width: '50rem',
+    backgroundColor: 'rgb(255,180,0)',
+    transform: 'skewX(17deg)',
+  }
   return (
-    <div id='avatar-panel' style={styleAvatarPanel}>
-      <img src="/0.png" alt="avatar" style={styleAvatarImg} />
-    </div>
+    <>
+      <div style={styleItemBehindAvatar} />
+      <div id='avatar-panel' style={styleAvatarPanel}>
+        <img src="/0.png" alt="avatar" style={styleAvatarImg} />
+      </div>
+    </>
   )
 }
