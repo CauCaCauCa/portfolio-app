@@ -6,28 +6,26 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import TransitEnterexitRoundedIcon from '@mui/icons-material/TransitEnterexitRounded';
 // import '../page.scss'
+import {useThemeContext} from '@/components/demo-page/ThemeContext'
 
+const style = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 1000,
+    height: 500,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
 
-type Props = {
-    isMobile?: boolean,
-}
-export default function ModalMoreAboutMe({ isMobile }: Props) {
+export default function ModalMoreAboutMe() {
+    const { theme } = useThemeContext()!;
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
-    const style = {
-        position: 'absolute' as 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: isMobile ? '70%' : 1000,
-        height: 500,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        p: 4,
-    };
 
     function handleOnMouseOver() {
         const btnMoreAboutMe = document.getElementById('btn-more-about-me')!;
@@ -41,56 +39,41 @@ export default function ModalMoreAboutMe({ isMobile }: Props) {
 
 
     return (
-        <div id='modal-more-about-me'
-            style={{
-                textAlign: isMobile ? 'center' : 'right',
-                ...(isMobile
-                    ? {
-                        display: 'flex',
-                        justifyContent: 'center', /* Horizontally center */
-                        alignItems: 'center' /* Vertically center */
-                    }
-                    : {})
-            }}
-
-        >
+        <div id='modal-more-about-me'>
             <div
                 onMouseOver={handleOnMouseOver}
                 onMouseOut={handleOnMouseOut}
                 style={{
                     borderRadius: '10rem',
                     border: '1px solid rgb(255,180,0)',
-                    width: isMobile ? '12rem' : '14rem',
+                    width: '14rem',
+                    float: 'right',
                     overflow: 'hidden',
-                    float: isMobile ? 'none' : 'right',
-
                 }}
             >
                 <b style={{
                     fontSize: '.8rem',
+                    // marginRight: '1.2rem',
                     pointerEvents: 'none',
                     userSelect: 'none',
-                    userDrag: 'none',
+                    userDrag: 'none',  
                     position: 'absolute',
-                    right: isMobile ? '' : '5rem',
-                    left: isMobile ? '-2rem' : '',
+                    right: '20.5%',
                     zIndex: 5,
-                    padding: isMobile ? '1rem' : '1.3rem 0',
-                    width: isMobile ? '100%' : 'auto',  
-                    textAlign: 'center',
-
+                    padding: '1.3rem 0',
+                    color: theme === 'light' ? 'rgb(102,102,102)' : 'white',
                 } as any}
-                >MORE ABOUT ME</b>
+                >DOWNLOAD CV</b>
                 <Button
                     id='btn-more-about-me'
                     onClick={handleOpen}
                     style={{
                         backgroundColor: 'rgb(255,180,0)',
+                        // borderRadius: '20rem',   
                         width: '1px',
-                        height: isMobile ? '3rem' : '3.6rem',
+                        height: '3.6rem',
                         minWidth: '0',
                         transition: 'all 0.25s',
-                        float: isMobile ? 'right' : 'none',
                     }}
                 >
                     <TransitEnterexitRoundedIcon
@@ -99,7 +82,7 @@ export default function ModalMoreAboutMe({ isMobile }: Props) {
                             position: 'absolute',
                             right: '0',
                             borderRadius: '50%',
-                            padding: isMobile ? '.5rem' : '.85rem',
+                            padding: '.85rem',
                             fontWeight: 'bold',
                             rotate: '225deg',
                             color: 'white',
@@ -129,6 +112,6 @@ export default function ModalMoreAboutMe({ isMobile }: Props) {
                     </Box>
                 </Fade>
             </Modal>
-        </div >
+        </div>
     );
 }

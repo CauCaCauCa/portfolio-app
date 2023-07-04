@@ -1,6 +1,6 @@
 import { Button } from '@mui/material'
 import React, { useEffect } from 'react'
-import { useThemeContext } from '../ThemeContext'
+import { useThemeContext } from './ThemeContext'
 
 type Props = {
     child: JSX.Element;
@@ -15,12 +15,12 @@ export default function ButtonExpand({ onClick, child, style, titleExpand, curPa
     const { theme } = useThemeContext()!;
 
     const styleButtonExpand = {
-        ...style,
-        borderRadius: '50%',
-        padding: '0rem',
         height: '3.2rem',
         width: '3.2rem',
+        borderRadius: '50%',
+        padding: '0rem',
         minWidth: '1rem',
+        ...style,
     }
 
     function handleOnMouseOver() {

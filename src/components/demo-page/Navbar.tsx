@@ -1,6 +1,6 @@
 
 import React, { useContext } from 'react'
-import ButtonExpand from './_button/ButtonExpand'
+import ButtonExpand from './ButtonExpand'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import SourceRoundedIcon from '@mui/icons-material/SourceRounded';
@@ -35,7 +35,7 @@ export default function Navbar({ curPage, setCurPage }: Props) {
                     theme === 'light' ? <DarkModeIcon style={{ fontSize: '1.5rem', color: 'rgb(102,102,102)' }} />
                         : <LightModeIcon style={{ fontSize: '1.5rem', color: 'white' }} />
                 }
-                style={{ position: 'fixed', top: '1rem', right: '1.5rem', backgroundColor: 'transparent' }}
+                style={{ position: 'fixed', top: '1rem', right: '1.5rem', backgroundColor: 'transparent', zIndex: 1000 }}
             />
             <div id='navbar' style={styleNavbar}>
                 <ButtonExpand
@@ -50,18 +50,21 @@ export default function Navbar({ curPage, setCurPage }: Props) {
                     child={<PersonRoundedIcon style={{ fontSize: '1.5rem' }} />}
                     style={{ ...(curPage === 'about' ? styleBtnSelect : styleBtnUnselect) }}
                     titleExpand='about'
+                    curPage={curPage}
                 />
                 <ButtonExpand
                     onClick={() => setCurPage('project')}
                     child={<SourceRoundedIcon style={{ fontSize: '1.5rem' }} />}
                     style={{ ...(curPage === 'project' ? styleBtnSelect : styleBtnUnselect) }}
                     titleExpand='project'
+                    curPage={curPage}
                 />
                 <ButtonExpand
                     onClick={() => setCurPage('contact')}
                     child={<DraftsIcon style={{ fontSize: '1.5rem' }} />}
                     style={{ ...(curPage === 'contact' ? styleBtnSelect : styleBtnUnselect) }}
                     titleExpand='contact'
+                    curPage={curPage}
                 />
             </div>
         </>
@@ -76,6 +79,6 @@ const styleNavbar = {
     flexDirection: 'column' as 'column',
     gap: '1rem',
     // backgroundColor: 'red',
-    // zIndex: 999,
+    zIndex: 100,
     // width: '10rem',
 }

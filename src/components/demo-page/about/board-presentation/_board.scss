@@ -1,0 +1,87 @@
+
+.personal-board {
+    padding: 0 15%;
+    display: flex;
+    gap: 10rem;
+    height: fit-content;
+    margin-bottom: 6rem;
+
+    .progress-skill {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 2rem;
+        width: 30%;
+        height: fit-content;
+    }
+
+    .infomation {
+        width: 55%;
+        // color: white;
+        text-align: right;
+        // background-color: blue;
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .item {
+                width: 50%;
+                margin-bottom: 2rem;
+                font-weight: 700;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.experience-board {
+    height: 50vh;
+    padding: 0 15%;
+    text-align: center;
+    // color: white;
+
+    .time-state-box {
+        text-align: right;
+        // border-right: solid 1px white;
+        padding-right: 1rem;
+
+        .time-state-box__time {
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-radius: 30rem;
+            width: 100px;
+            // color: rgb(102,102,102);
+            padding: 0.2rem 1rem;
+        }
+
+        .time-state-box__title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    }
+    
+    .time-statee-box__icon {
+        display: inline-block;
+        text-align: center;
+        margin-right: -1.6%;
+        background-color: rgb(255,180,0);
+        width: 2.3rem;
+        height: 2.3rem;
+        border-radius: 50%;
+
+        i {
+            // color: white;
+            margin-top: .7rem;
+        }
+    }
+}
