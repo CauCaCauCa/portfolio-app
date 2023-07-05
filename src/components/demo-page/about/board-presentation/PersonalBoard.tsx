@@ -103,7 +103,7 @@ export default function PersonalBoard({ style, isMobile }: Props) {
                     </div>
                     <div className='detail' style={{ position: 'absolute', right: '14.51rem' }} />
                     {/* <h5 style={{ position: 'relative', top: '-.3rem', left: '-4.5rem', userSelect: 'none' }}>DOWNLOAD CV</h5> */}
-                    <ModalDownloadCV isMobile={true}  />
+                    <ModalDownloadCV isMobile={isMobile}  />
                 </div>
             </div>
             {isMobile &&

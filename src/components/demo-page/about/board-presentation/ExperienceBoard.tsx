@@ -44,7 +44,8 @@ function TimeStateBox({ time, postion, workplace, detail, isMobile }: TimeStateB
   const { theme } = useThemeContext()!;
 
   const styleMobile = {
-    marginRight: isMobile ? '-.8rem' : '-0rem'
+    marginRight: isMobile ? '-.8rem' : '-0rem',
+    fontSize: isMobile ? '.1rem' : '1rem',
   }
 
   return (

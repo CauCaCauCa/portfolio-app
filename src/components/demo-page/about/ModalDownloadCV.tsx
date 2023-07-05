@@ -66,7 +66,7 @@ export default function ModalMoreAboutMe({ isMobile }: Props) {
                     userSelect: 'none',
                     userDrag: 'none',
                     position: 'absolute',
-                    right: isMobile ? '35%' : '21.5%',
+                    right: isMobile ? '35%' : '20.5%',
                     zIndex: 5,
                     padding: '1.3rem 0',
                     color: theme === 'light' ? 'rgb(102,102,102)' : 'white',
