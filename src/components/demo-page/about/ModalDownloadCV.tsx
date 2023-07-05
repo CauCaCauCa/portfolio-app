@@ -6,7 +6,7 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import TransitEnterexitRoundedIcon from '@mui/icons-material/TransitEnterexitRounded';
 // import '../page.scss'
-import {useThemeContext} from '@/components/demo-page/ThemeContext'
+import { useThemeContext } from '@/components/demo-page/ThemeContext'
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -21,7 +21,11 @@ const style = {
     p: 4,
 };
 
-export default function ModalMoreAboutMe() {
+type Props = {
+    isMobile?: boolean,
+}
+
+export default function ModalMoreAboutMe({ isMobile }: Props) {
     const { theme } = useThemeContext()!;
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -37,9 +41,13 @@ export default function ModalMoreAboutMe() {
         btnMoreAboutMe.style.width = '1px';
     }
 
-
+    const styleIsMobile = {
+        textAlign: 'right' as 'right',
+    }
     return (
-        <div id='modal-more-about-me'>
+        <div id='modal-more-about-me'
+            style={isMobile ? { ...styleIsMobile } : {}}
+        >
             <div
                 onMouseOver={handleOnMouseOver}
                 onMouseOut={handleOnMouseOut}
@@ -56,9 +64,9 @@ export default function ModalMoreAboutMe() {
                     // marginRight: '1.2rem',
                     pointerEvents: 'none',
                     userSelect: 'none',
-                    userDrag: 'none',  
+                    userDrag: 'none',
                     position: 'absolute',
-                    right: '20.5%',
+                    right: isMobile ? '35%' : '21.5%',
                     zIndex: 5,
                     padding: '1.3rem 0',
                     color: theme === 'light' ? 'rgb(102,102,102)' : 'white',

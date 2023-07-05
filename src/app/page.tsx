@@ -18,11 +18,13 @@ type Props = {}
 export default function Page({ }: Props) {
   const [isMobile, setIsMobile] = useState(true);
   const [isShow, setIsShow] = useState(false);
+  const [curPage, setCurPage] = useState('home');
+
 
   useEffect(() => {
     document.body.style.backgroundColor = 'rgb(17,17,17)';
     if (typeof window !== 'undefined') {
-      setIsMobile(window.innerWidth < 1200);
+      setIsMobile(window.innerWidth < 1100);
       setIsShow(true);
 
       // Event listener to update the state when the window size changes
@@ -43,14 +45,13 @@ export default function Page({ }: Props) {
   return (
     <div id='demo-page'>
       <ThemeProvider>
-        {isShow ? (isMobile ? <Mobile /> : <Desktop />) : null}
+        {isShow ? (isMobile ? <Mobile curPage={curPage} setCurPage={setCurPage} /> : <Desktop curPage={curPage} setCurPage={setCurPage} />) : null}
       </ThemeProvider>
     </div>
   )
 }
 
-function Desktop() {
-  const [curPage, setCurPage] = useState('home');
+function Desktop({ curPage, setCurPage }: { curPage: string, setCurPage: Function }) {
   const { theme } = useThemeContext()!;
 
   useEffect(() => {
@@ -188,8 +189,7 @@ function Desktop() {
   )
 }
 
-function Mobile() {
-  const [curPage, setCurPage] = useState('home');
+function Mobile({ curPage, setCurPage }: { curPage: string, setCurPage: Function }) {
   const { theme, toggleTheme } = useThemeContext()!;
 
   useEffect(() => {
@@ -219,27 +219,31 @@ function Mobile() {
       }
       {
         curPage === 'about' &&
-        <>
-        </>
+        <div
+          style={{
+            width: '100%',
+          }}
+        >
+          <Title title='ABOUT' titleHighlight='ME' titleBehind='RESUME' isMobile={true} />
+          <PersonalBoard style={{
+            marginTop: '10rem'
+          }}
+            isMobile={true}
+          />
+          <ExperienceBoard isMobile={true} />
+        </div>
       }
       {
         curPage === 'project' &&
         <>
-          <p
-            style={{
-              color: theme === 'light' ? 'black' : 'white',
-            }}
-          >
-            Project page is in comming soon...
-          </p>
+          <ProjectTitle  isMobile={true}/>
         </>
       }
       {
         curPage === 'contact' &&
         <>
-          <p>
+          <Title title='ABOUT' titleHighlight='ME' titleBehind='RESUME' isMobile={true} />
 
-          </p>
         </>
       }
     </div>

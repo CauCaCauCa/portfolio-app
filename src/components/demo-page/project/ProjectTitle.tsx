@@ -1,12 +1,14 @@
 import React from 'react'
 import Title from '../Title'
 
-type Props = {}
+type Props = {
+  isMobile?: boolean
+}
 
-export default function ProjectTitle({}: Props) {
+export default function ProjectTitle({isMobile}: Props) {
   return (
     <div id='project-title'>
-      <Title title='MY' titleHighlight='PROJECT' titleBehind='WORKS' />
+      <Title title='MY' titleHighlight='PROJECT' titleBehind='WORKS' isMobile={isMobile} />
     </div>
   )
 }
