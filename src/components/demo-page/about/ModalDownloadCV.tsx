@@ -27,9 +27,6 @@ type Props = {
 
 export default function ModalMoreAboutMe({ isMobile }: Props) {
     const { theme } = useThemeContext()!;
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
 
     function handleOnMouseOver() {
         const btnMoreAboutMe = document.getElementById('btn-more-about-me')!;
@@ -74,10 +71,13 @@ export default function ModalMoreAboutMe({ isMobile }: Props) {
                 >DOWNLOAD CV</b>
                 <Button
                     id='btn-more-about-me'
-                    onClick={handleOpen}
+                    onClick={
+                        () => {
+                            window.open('https://www.canva.com/design/DAFf0pWNhFI/n1WZe_gVCiVUddyHLfiTHQ/view?utm_content=DAFf0pWNhFI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink', '_blank');
+                        }
+                    }
                     style={{
                         backgroundColor: 'rgb(255,180,0)',
-                        // borderRadius: '20rem',   
                         width: '1px',
                         height: '3.6rem',
                         minWidth: '0',
@@ -100,26 +100,6 @@ export default function ModalMoreAboutMe({ isMobile }: Props) {
                     />
                 </Button>
             </div>
-
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                slots={{ backdrop: Backdrop }}
-                slotProps={{
-                    backdrop: {
-                        timeout: 500,
-                    },
-                }}
-            >
-                <Fade in={open}>
-                    <Box sx={style}>
-
-                    </Box>
-                </Fade>
-            </Modal>
         </div>
     );
 }

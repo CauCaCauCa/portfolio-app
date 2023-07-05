@@ -5,29 +5,19 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import TransitEnterexitRoundedIcon from '@mui/icons-material/TransitEnterexitRounded';
-// import '../page.scss'
-
+import Title from '../Title';
+import PersonalBoard from '../about/board-presentation/PersonalBoard';
+import ExperienceBoard from '../about/board-presentation/ExperienceBoard';
+import { useThemeContext } from '@/components/demo-page/ThemeContext';
 
 type Props = {
     isMobile?: boolean,
 }
 export default function ModalMoreAboutMe({ isMobile }: Props) {
+    const { theme } = useThemeContext()!;
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
-    const style = {
-        position: 'absolute' as 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: isMobile ? '70%' : 1000,
-        height: 500,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        p: 4,
-    };
 
     function handleOnMouseOver() {
         const btnMoreAboutMe = document.getElementById('btn-more-about-me')!;
@@ -76,7 +66,7 @@ export default function ModalMoreAboutMe({ isMobile }: Props) {
                     left: isMobile ? '-2rem' : '',
                     zIndex: 5,
                     padding: isMobile ? '1rem' : '1.3rem 0',
-                    width: isMobile ? '100%' : 'auto',  
+                    width: isMobile ? '100%' : 'auto',
                     textAlign: 'center',
 
                 } as any}
@@ -124,9 +114,28 @@ export default function ModalMoreAboutMe({ isMobile }: Props) {
                 }}
             >
                 <Fade in={open}>
-                    <Box sx={style}>
-
-                    </Box>
+                    <div
+                        style={{
+                            backgroundColor: theme === 'dark' ? 'rgb(30,30,30)' : 'white',
+                            width: isMobile ? '96%' : '70%',
+                            position: 'absolute',
+                            top: '15%',
+                            left: isMobile ? '2%' : '15%',
+                            height: '30rem',
+                            overflow: 'auto',
+                        }}
+                    >
+                        <div
+                        >
+                            <Title title='ABOUT' titleHighlight='ME' titleBehind='RESUME' isMobile={true} />
+                            <PersonalBoard style={{
+                                marginTop: '10rem',
+                            }}
+                                isMobile={isMobile}
+                            />
+                            <ExperienceBoard isMobile={true} />
+                        </div>
+                    </div>
                 </Fade>
             </Modal>
         </div >
