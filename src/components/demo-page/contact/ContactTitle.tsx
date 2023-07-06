@@ -266,7 +266,7 @@ export default function ContactTitle({ isMobile }: Props) {
               padding: '6% 0',
             }}
           >
-            <h2>! DON'T BE SHY</h2>
+            <h2>! DON&apos;T BE SHY</h2>
             <p
               style={{
                 fontSize: '15px',
