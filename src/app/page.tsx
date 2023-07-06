@@ -181,9 +181,14 @@ function Desktop({ curPage, setCurPage }: { curPage: string, setCurPage: Functio
       }
       {
         curPage === 'contact' &&
-        <>
+        <div id='contact-page-open'
+        style={{
+          position: 'fixed',
+          width: '100%',
+        }}
+        >
           <ContactTitle />
-        </>
+        </div>
       }
     </div>
   )
@@ -242,8 +247,7 @@ function Mobile({ curPage, setCurPage }: { curPage: string, setCurPage: Function
       {
         curPage === 'contact' &&
         <>
-          <Title title='ABOUT' titleHighlight='ME' titleBehind='RESUME' isMobile={true} />
-
+          <ContactTitle isMobile={true} />
         </>
       }
     </div>

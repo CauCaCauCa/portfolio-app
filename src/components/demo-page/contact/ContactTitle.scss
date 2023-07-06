@@ -1,0 +1,63 @@
+#body-project-page {
+    display: flex;
+    flex-direction: row;
+
+    #form {
+        margin: 2% 2% 0 5%;
+        width: 45%;
+        padding: 5%;
+        text-align: right;
+        font-weight: 600;
+
+        input {
+            border: 1px solid #afafaf8b;
+            border-radius: 2rem;
+            height: 2rem;
+            width: 20%;
+            text-align: right;
+            padding: 1% 4%;
+            background-color: #252525;
+            font-size: 14px;
+            outline: none;
+            transition: all .2s ease-in-out;
+
+
+            &:focus {
+                border: solid 1px rgb(255, 180, 0);
+            }
+
+
+        }
+
+        textarea {
+            border-radius: 2rem;
+            border: 1px solid #afafaf8b;
+            height: 10rem;
+            width: 20%;
+            text-align: right;
+            padding: 2% 4%;
+            font-size: 17px;
+            outline: none;
+            transition: all .2s ease-in-out;
+
+            &:focus {
+                border: solid 1px rgb(255, 180, 0);
+            }
+        }
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    30%{
+        transform: translateX(40%);
+    }
+    70% {
+        transform: translateX(-20%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}

@@ -7,7 +7,7 @@ type Props = {
 
 export default function ProjectTitle({isMobile}: Props) {
   return (
-    <div id='project-title'>
+    <div id='project-title' style={{ height: '10rem'}}>
       <Title title='MY' titleHighlight='PROJECT' titleBehind='WORKS' isMobile={isMobile} />
     </div>
   )
